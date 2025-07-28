@@ -1,0 +1,28 @@
+alertmanager:
+  config:
+    global:
+      smtp_smarthost: 'smtp.gmail.com:587'
+      smtp_from: 'nurmohammadshawon@gmail.com'
+      smtp_auth_username: 'nurmohammadshawon@gmail.com'
+      smtp_auth_password: 'xuvr jpzk gbpy ajeg'
+      smtp_require_tls: true
+
+    route:
+      group_by: ['alertname']
+      group_wait: 10s
+      group_interval: 2m
+      repeat_interval: 1h
+      receiver: 'null-receiver'
+      routes:
+        - match:
+            severity: critical
+          receiver: email-notifier
+
+    receivers:
+      - name: email-notifier
+        email_configs:
+          - to: 'nurmohammadshawon@gmail.com'
+            send_resolved: true
+
+      - name: null-receiver
+        email_configs: []

@@ -1,0 +1,5 @@
+additionalScrapeConfigs:
+  - job_name: 'alertmanager'
+    static_configs:
+      - targets: ['alertmanager-prometheus-stack-kube-prom-
+      alertmanager.monitoring.svc.cluster.local:9093']

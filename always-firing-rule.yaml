@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: always-firing
+  namespace: monitoring
+spec:
+  groups:
+    - name: test.rules
+      rules:
+        - alert: AlwaysFiringTestAlert
+          expr: vector(1)
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: "This is a test alert to verify email notifications"
