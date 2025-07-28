@@ -1,143 +1,95 @@
-<!-- markdownlint-disable-next-line -->
-# <img src="https://opentelemetry.io/img/logos/opentelemetry-logo-nav.png" alt="OTel logo" width="45"> OpenTelemetry Demo
+# 🎓 Thesis Project: Optimizing Distributed Tracing and Telemetry in Microservices Using OpenTelemetry
 
-[![Slack](https://img.shields.io/badge/slack-@cncf/otel/demo-brightgreen.svg?logo=slack)](https://cloud-native.slack.com/archives/C03B4CWV4DA)
-[![Version](https://img.shields.io/github/v/release/open-telemetry/opentelemetry-demo?color=blueviolet)](https://github.com/open-telemetry/opentelemetry-demo/releases)
-[![Commits](https://img.shields.io/github/commits-since/open-telemetry/opentelemetry-demo/latest?color=ff69b4&include_prereleases)](https://github.com/open-telemetry/opentelemetry-demo/graphs/commit-activity)
-[![Downloads](https://img.shields.io/docker/pulls/otel/demo)](https://hub.docker.com/r/otel/demo)
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg?color=red)](https://github.com/open-telemetry/opentelemetry-demo/blob/main/LICENSE)
-[![Integration Tests](https://github.com/open-telemetry/opentelemetry-demo/actions/workflows/run-integration-tests.yml/badge.svg)](https://github.com/open-telemetry/opentelemetry-demo/actions/workflows/run-integration-tests.yml)
-[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/opentelemetry-demo)](https://artifacthub.io/packages/helm/opentelemetry-helm/opentelemetry-demo)
-[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/9247/badge)](https://www.bestpractices.dev/en/projects/9247)
+## 📘 Project Overview
+This repository complements the master’s thesis titled  
+**“Optimizing Distributed Tracing and Telemetry in Microservices Using OpenTelemetry”**,  
+submitted by *Md Nur Mohammad* to **TH Köln – University of Applied Sciences** in **August 2025**.  
 
-## Welcome to the OpenTelemetry Astronomy Shop Demo
+The project focuses on designing a Kubernetes-based observability stack using the OpenTelemetry Demo Application to evaluate the effectiveness of end-to-end tracing, metrics, and logging in a microservices environment.
 
-This repository contains the OpenTelemetry Astronomy Shop, a microservice-based
-distributed system intended to illustrate the implementation of OpenTelemetry in
-a near real-world environment.
+---
 
-Our goals are threefold:
+## 🎯 Motivation
+Microservices offer great flexibility but introduce operational complexity. Traditional monitoring tools often fail to correlate logs, metrics, and traces, resulting in:
 
-- Provide a realistic example of a distributed system that can be used to
-  demonstrate OpenTelemetry instrumentation and observability.
-- Build a base for vendors, tooling authors, and others to extend and
-  demonstrate their OpenTelemetry integrations.
-- Create a living example for OpenTelemetry contributors to use for testing new
-  versions of the API, SDK, and other components or enhancements.
+- Delayed fault detection
+- Increased MTTR (Mean Time to Resolution)
+- Fragmented visibility across services
 
-We've already made [huge
-progress](https://github.com/open-telemetry/opentelemetry-demo/blob/main/CHANGELOG.md),
-and development is ongoing. We hope to represent the full feature set of
-OpenTelemetry across its languages in the future.
+This thesis aims to address these challenges by leveraging **OpenTelemetry**, which provides:
 
-If you'd like to help (**which we would love**), check out our [contributing
-guidance](./CONTRIBUTING.md).
+- ✅ Vendor-neutral, scalable observability tooling  
+- ✅ Improved traceability across polyglot microservices  
+- ✅ Real-time performance and reliability insights  
+- ✅ DevOps-compatible monitoring pipelines  
 
-If you'd like to extend this demo or maintain a fork of it, read our
-[fork guidance](https://opentelemetry.io/docs/demo/forking/).
+OpenTelemetry integrates seamlessly with tools like **Grafana**, **Prometheus**, and **Jaeger**.
 
-## Quick start
+---
 
-You can be up and running with the demo in a few minutes. Check out the docs for
-your preferred deployment method:
+## 🧰 Tech Stack
 
-- [Docker](https://opentelemetry.io/docs/demo/docker_deployment/)
-- [Kubernetes](https://opentelemetry.io/docs/demo/kubernetes_deployment/)
+| Component      | Role                                 |
+|----------------|--------------------------------------|
+| OpenTelemetry  | Collection of traces, metrics, logs  |
+| Jaeger         | Distributed tracing backend          |
+| Prometheus     | Metrics scraping and alerting        |
+| Grafana        | Unified dashboard visualizations     |
+| Locust         | Load generator                       |
+| Helm           | Kubernetes package manager           |
+| Kubernetes     | Container orchestration platform     |
 
-## Documentation
+---
 
-For detailed documentation, see [Demo Documentation][docs]. If you're curious
-about a specific feature, the [docs landing page][docs] can point you in the
-right direction.
+## 🚀 Quick Start – Kubernetes Deployment
 
-## Demos featuring the Astronomy Shop
+### Prerequisites
+- Helm 3
+- Kubernetes cluster (Minikube, KIND, or cloud-based)
+- kubectl CLI
 
-We welcome any vendor to fork the project to demonstrate their services and
-adding a link below. The community is committed to maintaining the project and
-keeping it up to date for you.
+### Deployment Steps
 
-|                           |                |                                  |
-|---------------------------|----------------|----------------------------------|
-| [AlibabaCloud LogService] | [Google Cloud] |  [Oracle]                        |
-| [AppDynamics]             | [Grafana Labs] |  [Sentry]                        |
-| [Aspecto]                 | [Guance]       |  [ServiceNow Cloud Observability]|
-| [Axiom]                   | [Honeycomb.io] |  [SigNoz]                        |
-| [Axoflow]                 | [Instana]      |  [Splunk]                        |
-| [Azure Data Explorer]     | [Kloudfuse]    |  [Sumo Logic]                    |
-| [Coralogix]               | [Last9]        |  [TelemetryHub]                  |
-| [Dash0]                   | [Liatrio]      |  [Teletrace]                     |
-| [Datadog]                 | [Logz.io]      |  [Tracetest]                     |
-| [Dynatrace]               | [New Relic]    |  [Uptrace]                       |
-| [Elastic]                 | [OpenSearch]   |                                  |
+```bash
+# 1. Clone the repository
+git clone https://github.com/mmohamm5/Distributed_Tracing_by_using_OpenTelemetry.git
 
-## Contributing
+# 2. Navigate to the Helm chart directory
+cd Distributed_Tracing_by_using_OpenTelemetry/helm/helm-chart/opentelemetry-demo
 
-To get involved with the project see our [CONTRIBUTING](CONTRIBUTING.md)
-documentation. Our [SIG Calls](CONTRIBUTING.md#join-a-sig-call) are every other
-Wednesday at 8:30 AM PST and anyone is welcome.
+# 3. Install the Helm chart
+helm install otel-demo . -n otel-demo --create-namespace
 
-## Project leadership
+# 4. Alternatively, deploy using kubectl
+kubectl create --namespace otel-demo -f https://github.com/mmohamm5/Distributed_Tracing_by_using_OpenTelemetry/blob/master/kubernetes/opentelemetry-demo.yaml
+# or
+cd Distributed_Tracing_by_using_OpenTelemetry/kubernetes
+kubectl create --namespace otel-demo -f opentelemetry-demo.yaml
 
-[Maintainers](https://github.com/open-telemetry/community/blob/main/guides/contributor/membership.md#maintainer)
-([@open-telemetry/demo-maintainers](https://github.com/orgs/open-telemetry/teams/demo-maintainers)):
+```
 
-- [Juliano Costa](https://github.com/julianocosta89), Datadog
-- [Mikko Viitanen](https://github.com/mviitane), Dynatrace
-- [Pierre Tessier](https://github.com/puckpuck), Honeycomb
+## 🔗 Accessing Services via Port Forwarding
 
-[Approvers](https://github.com/open-telemetry/community/blob/main/guides/contributor/membership.md#approver)
-([@open-telemetry/demo-approvers](https://github.com/orgs/open-telemetry/teams/demo-approvers)):
+After setting up the `frontend-proxy` port-forward, you can access the following interfaces locally:
 
-- [Cedric Ziel](https://github.com/cedricziel) Grafana Labs
-- [Penghan Wang](https://github.com/wph95), AppDynamics
-- [Reiley Yang](https://github.com/reyang), Microsoft
-- [Roger Coll](https://github.com/rogercoll), Elastic
-- [Ziqi Zhao](https://github.com/fatsheep9146), Alibaba
+- 🛒 **Web Store**: [http://localhost:8080/](http://localhost:8080/)
+- 📊 **Grafana Dashboard**: [http://localhost:8080/grafana/](http://localhost:8080/grafana/)
+- ⚙️ **Load Generator UI**: [http://localhost:8080/loadgen/](http://localhost:8080/loadgen/)
+- 🔍 **Jaeger Tracing UI**: [http://localhost:8080/jaeger/ui/](http://localhost:8080/jaeger/ui/)
+- 🚩 **Flagd Configurator UI**: [http://localhost:8080/feature](http://localhost:8080/feature)
 
-Emeritus:
+---
 
-- [Austin Parker](https://github.com/austinlparker)
-- [Carter Socha](https://github.com/cartersocha)
-- [Michael Maxwell](https://github.com/mic-max)
-- [Morgan McLean](https://github.com/mtwo)
+## 📎 Repository Appendix: Master's Thesis
 
-### Thanks to all the people who have contributed
+This GitHub repository accompanies the Master's thesis:
 
-[![contributors](https://contributors-img.web.app/image?repo=open-telemetry/opentelemetry-demo)](https://github.com/open-telemetry/opentelemetry-demo/graphs/contributors)
+**Title**: *Optimizing Distributed Tracing and Telemetry in Microservices Using OpenTelemetry*  
+**Author**: Md Nur Mohammad  
+**University**: TH Köln – University of Applied Sciences  
+**Submitted**: August 2025  
+**Degree**: Master of Science in Communication Systems and Networks.
 
-[docs]: https://opentelemetry.io/docs/demo/
+📄  "The thesis is available upon request from the author or the university archive."
 
-<!-- Links for Demos featuring the Astronomy Shop section -->
-
-[AlibabaCloud LogService]: https://github.com/aliyun-sls/opentelemetry-demo
-[AppDynamics]: https://community.splunk.com/t5/AppDynamics-Knowledge-Base/How-to-observe-Kubernetes-deployment-of-OpenTelemetry-demo-app/ta-p/741454
-[Aspecto]: https://github.com/aspecto-io/opentelemetry-demo
-[Axiom]: https://play.axiom.co/axiom-play-qf1k/dashboards/otel.traces.otel-demo-traces
-[Axoflow]: https://axoflow.com/opentelemetry-support-in-more-detail-in-axosyslog-and-syslog-ng/
-[Azure Data Explorer]: https://github.com/Azure/Azure-kusto-opentelemetry-demo
-[Coralogix]: https://coralogix.com/blog/configure-otel-demo-send-telemetry-data-coralogix
-[Dash0]: https://github.com/dash0hq/opentelemetry-demo
-[Datadog]: https://docs.datadoghq.com/opentelemetry/guide/otel_demo_to_datadog
-[Dynatrace]: https://www.dynatrace.com/news/blog/opentelemetry-demo-application-with-dynatrace/
-[Elastic]: https://github.com/elastic/opentelemetry-demo
-[Google Cloud]: https://github.com/GoogleCloudPlatform/opentelemetry-demo
-[Grafana Labs]: https://github.com/grafana/opentelemetry-demo
-[Guance]: https://github.com/GuanceCloud/opentelemetry-demo
-[Honeycomb.io]: https://github.com/honeycombio/opentelemetry-demo
-[Instana]: https://github.com/instana/opentelemetry-demo
-[Kloudfuse]: https://github.com/kloudfuse/opentelemetry-demo
-[Last9]: https://last9.io/docs/integrations-opentelemetry-demo/
-[Liatrio]: https://github.com/liatrio/opentelemetry-demo
-[Logz.io]: https://logz.io/learn/how-to-run-opentelemetry-demo-with-logz-io/
-[New Relic]: https://github.com/newrelic/opentelemetry-demo
-[OpenSearch]: https://github.com/opensearch-project/opentelemetry-demo
-[Oracle]: https://github.com/oracle-quickstart/oci-o11y-solutions/blob/main/knowledge-content/opentelemetry-demo
-[Sentry]: https://github.com/getsentry/opentelemetry-demo
-[ServiceNow Cloud Observability]: https://docs.lightstep.com/otel/quick-start-operator#send-data-from-the-opentelemetry-demo
-[SigNoz]: https://signoz.io/blog/opentelemetry-demo/
-[Splunk]: https://github.com/signalfx/opentelemetry-demo
-[Sumo Logic]: https://www.sumologic.com/blog/common-opentelemetry-demo-application/
-[TelemetryHub]: https://github.com/TelemetryHub/opentelemetry-demo/tree/telemetryhub-backend
-[Teletrace]: https://github.com/teletrace/opentelemetry-demo
-[Tracetest]: https://github.com/kubeshop/opentelemetry-demo
-[Uptrace]: https://github.com/uptrace/uptrace/tree/master/example/opentelemetry-demo
+📘 This repository contains the complete implementation, deployment scripts, configuration files, and dashboards referenced in the thesis.
