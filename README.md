@@ -87,7 +87,7 @@ This GitHub repository accompanies the Master's thesis:
 **Title**: *Optimizing Distributed Tracing and Telemetry in Microservices Using OpenTelemetry*  
 **Author**: Md Nur Mohammad  
 **University**: TH Köln – University of Applied Sciences  
-**Submitted**: August 2025  
+**Submitted**: September 2025  
 **Degree**: Master of Science in Communication Systems and Networks.
 
 📄  "The thesis is available upon request from the author or the university archive."
